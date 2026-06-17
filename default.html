@@ -33,6 +33,55 @@
 	<p>
 		<strong>Model Context Protocol</strong> is a type of universal plug and socket that allows agents to "see" and affect the outside (digital or physical) world.
 	</p>
+	<p>
+		You can think of it an a type of API that agents use to talk to tools (and vice versa).
+	</p>
+	<section>
+		<h1>Example</h1>
+		<p>
+			Because <strong><abbr title="model context protocol">MCP</abbr></strong> is built on JSON-RPC 2.0, understanding JSON-RPC 2.0 helps you undestand <strong><abbr title="model context protocol">MCP</abbr></strong>.
+			(And, if you already know JSON-RPC 2.0, <strong><abbr title="model context protocol">MCP</abbr></strong> will seem familiar.)
+		</p>
+		<p>
+			Here is an example request in <strong><abbr title="model context protocol">MCP</abbr></strong>:
+		</p>
+		<figure>
+			<pre><code>
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "fetch_weather",
+    "arguments": {
+      "location": "Vancouver, BC",
+      "unit": "celsius"
+    }
+  },
+  "id": "019ed368-35f1-767a-81c6-748f53e7e0b1"
+}
+			</code></pre>
+		</figure>
+		<p>
+			And, here is an example response in <strong><abbr title="model context protocol">MCP</abbr></strong>:
+		</p>
+		<figure>
+			<pre><code>
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Current weather in Vancouver, BC: 22°C, Sunny. Humidity: 49%."
+      }
+    ],
+    "isError": false
+  },
+  "id": "019ed368-35f1-767a-81c6-748f53e7e0b1"
+}
+			</code></pre>
+		</figure>
+	</section>
 	<section>
 		<h1>See Also</h1>
 		<ul>
